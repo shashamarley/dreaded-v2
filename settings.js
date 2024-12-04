@@ -3,13 +3,13 @@
 You don't have to set this if you deploy using heroku because you can simply set them in environment variables, also don't forget to sleep */
 
 
-const session = process.env.SESSION || '';
+const session = process.env.SESSION || 'eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiU1B0SzBFNmljeWQ1S21mU0ZhaEM4TGhUVGpEKzZ0VVJIODB6ZVAzQURYbz0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiSTdXbkhQcWd3azIxZnRmSzRjUGNvckYrNzFGb0J0RWR6WGVFWmFWNkNSTT0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJXR01GZFJhNkcvZGpxM2U3OCsvdjdSbDVnQ25xcVlSaWlaUHZHdDI1QkhJPSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJnZkVWd2gzSytNSCs1VWtaTUp1RFJlVzkxQmlVNkxOWXZPK3ZPMHlZbmdjPSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6Im9JQ3VJM2kwbGRkTi84UUdhK2crWWVEZW9iUTNvY09PWHRSU2htSEVUa2c9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IlM2NjYvS0xQK1BvY0FZRE4wODE2VWJVZEFYNnVYVmgwcHNteXBZUUVwR009In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiSU1NbGhVT1VBWGE2Z0trZkhvTXdWT2d1c3RYVGtrWTdOeEFRK3RmRWJuYz0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoibHVIZkMwMEpXeEJKSE1XNnpEWkJBaksxZDZHZ3QwdHJtSjBlSytyVFh3OD0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6InJjZjhRVCtZTTdCMHZLaWx1M29KQ2lRWXpGbzB4Ly8yVXliZTkwZnpTbHRZeTM4b2gwN0xDVlB4Rm5tcVdlTU9BSmkxQWNvS0hmVlFjVDdiM3M5RWp3PT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6MjQ1LCJhZHZTZWNyZXRLZXkiOiJwWHNDOVVRSDRaNmNtTVNwU1o0Sll6Mm9yMm1iZXpNZ3l6NlJSd2lMa3drPSIsInByb2Nlc3NlZEhpc3RvcnlNZXNzYWdlcyI6W3sia2V5Ijp7InJlbW90ZUppZCI6IjI1NDc3OTE2NzA0OEBzLndoYXRzYXBwLm5ldCIsImZyb21NZSI6dHJ1ZSwiaWQiOiIwNzRCNjIyQjBBMzNCM0FDM0I2QTZCMzAxMEVBREIxNSJ9LCJtZXNzYWdlVGltZXN0YW1wIjoxNzMzMzM3NTUyfSx7ImtleSI6eyJyZW1vdGVKaWQiOiIyNTQ3NzkxNjcwNDhAcy53aGF0c2FwcC5uZXQiLCJmcm9tTWUiOnRydWUsImlkIjoiNTk2RjAzRDkzRkQzNzJENzQ2ODVBODgxN0ZCMDVCMTAifSwibWVzc2FnZVRpbWVzdGFtcCI6MTczMzMzNzU1M30seyJrZXkiOnsicmVtb3RlSmlkIjoiMjU0Nzc5MTY3MDQ4QHMud2hhdHNhcHAubmV0IiwiZnJvbU1lIjp0cnVlLCJpZCI6IkZFNTI0NDMzMTlBQUQ0ODZGOTREMjZGRUJCNTc0RjU0In0sIm1lc3NhZ2VUaW1lc3RhbXAiOjE3MzMzMzc1NjV9LHsia2V5Ijp7InJlbW90ZUppZCI6IjI1NDc3OTE2NzA0OEBzLndoYXRzYXBwLm5ldCIsImZyb21NZSI6dHJ1ZSwiaWQiOiJGRThFQ0QzOEJCOEU1QzQ5NDA0MDQxMkQwMEE2QzA0NyJ9LCJtZXNzYWdlVGltZXN0YW1wIjoxNzMzMzM3NTcyfSx7ImtleSI6eyJyZW1vdGVKaWQiOiIyNTQ3NzkxNjcwNDhAcy53aGF0c2FwcC5uZXQiLCJmcm9tTWUiOnRydWUsImlkIjoiQTVGODM5MjI3NzE2MjA4NzY0N0ZGOTQ0QThCM0I0QjUifSwibWVzc2FnZVRpbWVzdGFtcCI6MTczMzMzNzU3N30seyJrZXkiOnsicmVtb3RlSmlkIjoiMjU0Nzc5MTY3MDQ4QHMud2hhdHNhcHAubmV0IiwiZnJvbU1lIjp0cnVlLCJpZCI6IkJCMzM1QjY5NTg5MUFBQzc4OTdGMjkzOEZGRDYzNUY4In0sIm1lc3NhZ2VUaW1lc3RhbXAiOjE3MzMzMzc1Nzd9LHsia2V5Ijp7InJlbW90ZUppZCI6IjI1NDc3OTE2NzA0OEBzLndoYXRzYXBwLm5ldCIsImZyb21NZSI6dHJ1ZSwiaWQiOiJBMTU1MEU0QzVCQUVFNzhEOTdEMDBGRTU4N0YxMzlBMyJ9LCJtZXNzYWdlVGltZXN0YW1wIjoxNzMzMzM3NTc4fV0sIm5leHRQcmVLZXlJZCI6MzEsImZpcnN0VW51cGxvYWRlZFByZUtleUlkIjozMSwiYWNjb3VudFN5bmNDb3VudGVyIjoxLCJhY2NvdW50U2V0dGluZ3MiOnsidW5hcmNoaXZlQ2hhdHMiOmZhbHNlfSwiZGV2aWNlSWQiOiJaTkRpakZpSlJ2dUtaams1SFZEWG13IiwicGhvbmVJZCI6IjNkOGU0MGRjLTAxMDktNGY1Zi05YTU0LWZkODdhNzUwNmU2NSIsImlkZW50aXR5SWQiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiIxZDJITSswS1JrSlpIeVMxZkkzNVc2SXZ1Ymc9In0sInJlZ2lzdGVyZWQiOnRydWUsImJhY2t1cFRva2VuIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiVGZvOFNja1FVS2hvNjRrSVFsZGU4ZzFuWjRzPSJ9LCJyZWdpc3RyYXRpb24iOnt9LCJwYWlyaW5nQ29kZSI6IjNNV0wyWDQ5IiwibWUiOnsiaWQiOiIyNTQ3NzkxNjcwNDg6MTVAcy53aGF0c2FwcC5uZXQiLCJuYW1lIjoi4Lq4In0sImFjY291bnQiOnsiZGV0YWlscyI6IkNOMnExNHdCRU1ERHdyb0dHQUVnQUNnQSIsImFjY291bnRTaWduYXR1cmVLZXkiOiJqMlBKemJvcGdsN24zRDBIMzdhcmFxSllCSkZRVVRCbm41RWo5dS9WVFhRPSIsImFjY291bnRTaWduYXR1cmUiOiJCOVBNd1dFUnVsVEFGNmkxcFlsWlhCVFNTSmhlSEFGSzlTY01ESnZ4czBtY2M3ZjBmeDNRb1hPT09yb0cyV1ZjUnpYUzViMEdwWVNiZWluM3pKWS9CQT09IiwiZGV2aWNlU2lnbmF0dXJlIjoiMkV5akE5Nkg5cFUyNmp2M2EzTWJzRHFvRmhHb1JreGVYeVRwL3dqY1IzMlNrRGgxOEtIVnFLQngxMGkvelFUU0kyN0Frd1cwVk40a3Y4V0lzck5MaWc9PSJ9LCJzaWduYWxJZGVudGl0aWVzIjpbeyJpZGVudGlmaWVyIjp7Im5hbWUiOiIyNTQ3NzkxNjcwNDg6MTVAcy53aGF0c2FwcC5uZXQiLCJkZXZpY2VJZCI6MH0sImlkZW50aWZpZXJLZXkiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJCWTlqeWMyNktZSmU1OXc5QjkrMnEycWlXQVNSVUZFd1o1K1JJL2J2MVUxMCJ9fV0sInBsYXRmb3JtIjoiYW5kcm9pZCIsImxhc3RBY2NvdW50U3luY1RpbWVzdGFtcCI6MTczMzMzNzU0OSwibXlBcHBTdGF0ZUtleUlkIjoiQUFBQUFCK2gifQ==';
 
-const prefix = process.env.PREFIX || '.';
+const prefix = process.env.PREFIX || '_';
 const mycode = process.env.CODE || "254";
-const author = process.env.STICKER_AUTHOR || 'fortunatus';
-const packname = process.env.PACKNAME || 'dreaded md2 🤖';
-const dev = process.env.DEV || '254114018035';
+const author = process.env.STICKER_AUTHOR || '☬  𝐌𝐢𝐤𝐚𝐞𝐥𝐬𝐨𝐧 𝐅𝐚𝐦𝐢𝐥𝐲  ☬';
+const packname = process.env.PACKNAME || 'dreaded';
+const dev = process.env.DEV || '254779167048';
 const DevDreaded = dev.split(",");
 const botname = process.env.BOTNAME || 'DREADED';
 const mode = process.env.MODE || 'public';
@@ -19,12 +19,12 @@ const sessionName = "session";
 const cookies = JSON.parse(process.env.COOKIE || '[{"domain":".youtube.com","expirationDate":1764463277.409877,"hostOnly":false,"httpOnly":false,"name":"__Secure-1PAPISID","path":"/","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"UoBcKfo0_FSAxQ5D/A5ZClpB2xVLQJQGUx","id":1},{"domain":".youtube.com","expirationDate":1764463277.412158,"hostOnly":false,"httpOnly":true,"name":"__Secure-1PSID","path":"/","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"g.a000pghxevPjwTr5Un_D-PS1UxiaEdymANhc_5NWNQgaApthzLU0MOFGGamQ5yqi2vrAqKldbgACgYKASoSARUSFQHGX2MiB0PtUQYJy2_oQLkmMPXgfRoVAUF8yKpuqWya_M2xRHe_6e9o_6TK0076","id":2},{"domain":".youtube.com","expirationDate":1762941611.655441,"hostOnly":false,"httpOnly":true,"name":"__Secure-1PSIDCC","path":"/","sameSite":"unspecified","secure":true,"session":false,"storeId":"0","value":"AKEyXzWtrmvqerXnEweUSkGiFKAn57TBnvoAEBDi6B33Sg4gpMOANgVFwDBU_JtKQXLpisy_","id":3}]');
 const presence = process.env.WA_PRESENCE || 'online';
 
-const antitag = process.env.ANTITAG || 'true';
+const antitag = process.env.ANTITAG || 'false';
 const antidelete = process.env.ANTIDELETE || 'true';
-const autoview = process.env.AUTOVIEW_STATUS || 'true';
-const autolike = process.env.AUTOLIKE_STATUS || 'true';
-const autoread = process.env.AUTOREAD || 'true';
-const autobio = process.env.AUTOBIO || 'false';
+const autoview = process.env.AUTOVIEW_STATUS || 'false';
+const autolike = process.env.AUTOLIKE_STATUS || 'false';
+const autoread = process.env.AUTOREAD || 'false';
+const autobio = process.env.AUTOBIO || 'true';
 
 module.exports = {
   sessionName,
